@@ -2,6 +2,8 @@ package de.ch4inl3ss.model;
 
 import java.util.List;
 
+import de.ch4inl3ss.entity.Programmer;
+
 public class DataContainer {
 
 	private String inputComplex;
@@ -19,6 +21,10 @@ public class DataContainer {
 	private String latitude;
 
 	private String longitude;
+
+	private Programmer programmer;
+
+	private List<Programmer> programmers;
 
 	public String getApiKey() {
 		return apiKey;
@@ -42,6 +48,14 @@ public class DataContainer {
 
 	public List<String> getOutputComplex() {
 		return outputComplex;
+	}
+
+	public Programmer getProgrammer() {
+		return programmer;
+	}
+
+	public List<Programmer> getProgrammers() {
+		return programmers;
 	}
 
 	public String getTemperature() {
@@ -74,6 +88,14 @@ public class DataContainer {
 
 	public void setOutputComplex(List<String> outputComplex) {
 		this.outputComplex = outputComplex;
+	}
+
+	public void setProgrammer(Programmer programmer) {
+		this.programmer = programmer;
+	}
+
+	public void setProgrammers(List<Programmer> programmers) {
+		this.programmers = programmers;
 	}
 
 	public void setTemperature(String temperature) {

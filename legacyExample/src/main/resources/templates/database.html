@@ -10,24 +10,50 @@
    <div class="container theme-showcase" role="main">
 		<div class="jumbotron">
 			<h1>
-				Example for a Calculation 
+				Example for a database 
 			</h1>
+			<h2>
+				Some famous programmers are in here...
+			</h2>
 			<p>
-				This Page calculates primes up to a given number
+				and many are missing...
 			</p>
 		</div>
 		<div class="container">
-			<form action="#" th:action="@{/complex}" method="post" th:object="${dataContainer}">
+			<form action="#" th:action="@{/database}" method="post" th:object="${dataContainer.programmer}">
 				<div class="form-group">
-					<label for="formGroupExampleInput">Up to which prime?</label> 
-					<input  type="text" class="form-control" th:field="*{inputComplex}" placeholder="Which prime?"></input>
+					<label for="formGroupExampleInput">First name</label> 
+					<input  type="text" class="form-control" th:field="*{firstName}" placeholder="First name"></input>
 					<p/>
-					<button type="submit" class="btn btn-primary">Calculate up to nTh Prime</button>
+					<label for="formGroupExampleInput">Last name</label> 
+					<input  type="text" class="form-control" th:field="*{lastName}" placeholder="Last name"></input>
+					<p/>
+					<label for="formGroupExampleInput">Age name</label> 
+					<input  type="text" class="form-control" th:field="*{age}" placeholder="Age"></input>
+					<p/>
+					<button type="submit" class="btn btn-primary">Put Programmer into Database</button>
 				</div>
 			</form>
-			<div th:each="prime : ${dataContainer.outputComplex}" th:remove="tag">
-				<b th:text="${prime}+ ' '" > </b>
-			</div>
+		</div>
+		
+		<div class="container">
+			<h2>Table showing the database of famous programmers</h2>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Age</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr th:each="programmer : ${dataContainer.programmers}">
+						<td th:text="${programmer.firstName}"></td>
+						<td th:text="${programmer.lastName}"></td>
+						<td th:text="${programmer.age}"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </body>
