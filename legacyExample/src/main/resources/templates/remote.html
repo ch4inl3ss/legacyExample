@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>A Simple Webapplication</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</meta>
+<link href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" media="screen">
+</link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<h1>Example for a remote-api call</h1>
+			<p>Calls the api of <a href="https://darksky.net/">https://darksky.net/</a></p>
+		</div>
+		<div class="container">
+			<form action="#" th:action="@{/remote}" method="post"
+				th:object="${dataContainer}">
+				<div class="form-group">
+					<label for="apikey">API Key</label> 
+					<input
+						id="apikey" type="password" class="form-control" th:field="*{apiKey}"
+						placeholder="API-KEY?"></input>
+					<p />
+					<label for="latitude">Latitude</label> 
+					<input id="latitude" type="text" class="form-control" th:field="*{latitude}"
+						placeholder="Latitude?"></input>
+					<p />
+					<label for="longitude">Longitude</label> 
+					<input id="longitude" type="text" class="form-control" th:field="*{longitude}"
+						placeholder="Longitude"></input>
+					<p />
+					<button type="submit" class="btn btn-primary">Call
+						Remoteservice</button>
+				</div>
+			</form>
+		</div>
+		
+		<div class="container">
+			<h2>Table showing the weather-data</h2>
+			<table class="table">
+				<thead>
+				<tr>
+					<th>What</th>
+					<th>Value</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Temperature:</td>
+						<td th:text="${dataContainer.temperature}"></td>
+					</tr>
+					<tr>
+						<td>Humidity:</td>
+						<td th:text="${dataContainer.humidity}"></td>
+					</tr>
+					<tr>
+						<td>Windspeed:</td>
+						<td th:text="${dataContainer.windspeed}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

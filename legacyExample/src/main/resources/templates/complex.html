@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<title>A Simple Webapplication</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+	<link href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" media="screen"> </link>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	</head>
+<body>
+   <div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<h1>
+				Example for a Calculation 
+			</h1>
+			<p>
+				This Page calculates primes up to a given number
+			</p>
+		</div>
+		<div class="container">
+			<form action="#" th:action="@{/complex}" method="post" th:object="${dataContainer}">
+				<div class="form-group">
+					<label for="formGroupExampleInput">Up to which prime?</label> 
+					<input  type="text" class="form-control" th:field="*{inputComplex}" placeholder="Which prime?"></input>
+					<p/>
+					<button type="submit" class="btn btn-primary">Calculate up to nTh Prime</button>
+				</div>
+			</form>
+			<div th:each="prime : ${dataContainer.outputComplex}" th:remove="tag">
+				<b th:text="${prime}+ ' '" > </b>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

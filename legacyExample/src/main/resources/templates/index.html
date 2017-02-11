@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>A Simple Webapplication</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</meta>
+<!-- Bootstrap -->
+<link href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" media="screen">
+</link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container theme-showcase" role="main">
+
+
+		<div class="jumbotron">
+			<h1>Example for an application </h1>
+			<h2>(which might have some bad Code in it)</h2>
+			<p>This page redirects to different usecases the web-application has</p>
+		</div>
+
+
+		<div class="container">
+
+			<form action="/complex">
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Site with calculation-example</button>
+				</div>
+			</form>
+
+			<form action="/remote">
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Site with remote-call-example</button>
+				</div>
+			</form>
+
+			<form action="/database">
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Site with database-access</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
