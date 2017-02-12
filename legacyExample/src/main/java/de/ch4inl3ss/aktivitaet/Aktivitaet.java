@@ -12,7 +12,6 @@ import com.github.dvdme.ForecastIOLib.ForecastIO;
 
 import de.ch4inl3ss.entity.Programmer;
 import de.ch4inl3ss.model.DataContainer;
-import de.ch4inl3ss.model.State;
 import de.ch4inl3ss.repository.ProgrammerRepository;
 
 @Component
@@ -22,7 +21,7 @@ public class Aktivitaet {
 	private ProgrammerRepository programmerRepository;
 
 	public String ausfuehrenImplementierung(String state, DataContainer dataContainer) {
-		if (State.COMPLEX.getState().equals(state)) {
+		if ("complex".equals(state)) {
 
 			// calculate the nth prime
 			if (dataContainer.getInputComplex() != null) {
@@ -47,7 +46,7 @@ public class Aktivitaet {
 						.setOutputComplex(primes.stream().map(l -> String.valueOf(l)).collect(Collectors.toList()));
 			}
 			return "complex";
-		} else if (State.REMOTE.getState().equals(state)) {
+		} else if ("remote".equals(state)) {
 
 			// Get a Weatherreport
 			ForecastIO fio = new ForecastIO(dataContainer.getApiKey());
@@ -65,7 +64,7 @@ public class Aktivitaet {
 
 			return "remote";
 
-		} else if (State.DATABASE.getState().equals(state)) {
+		} else if ("database".equals(state)) {
 			// Put a new Programmer into the database
 
 			Programmer newProgrammer = dataContainer.getProgrammer();
