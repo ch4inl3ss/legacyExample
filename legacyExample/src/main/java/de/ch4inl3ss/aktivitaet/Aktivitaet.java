@@ -1,6 +1,7 @@
 package de.ch4inl3ss.aktivitaet;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,9 +26,8 @@ public class Aktivitaet {
 
 			// calculate the nth prime
 			if (dataContainer.getInputComplex() != null) {
-				List<Long> primes = new ArrayList<>();
+				LinkedList<Long> primes = new LinkedList<>();
 				int whichPrime = Integer.parseInt(dataContainer.getInputComplex());
-				primes.add(1l);
 				primes.add(2l);
 				long i = 2;
 				primes: while (primes.size() < whichPrime) {
@@ -42,6 +42,7 @@ public class Aktivitaet {
 					}
 					i++;
 				}
+				primes.addFirst(1l);
 				dataContainer
 						.setOutputComplex(primes.stream().map(l -> String.valueOf(l)).collect(Collectors.toList()));
 			}
