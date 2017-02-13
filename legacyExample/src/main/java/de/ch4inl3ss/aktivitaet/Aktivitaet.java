@@ -21,13 +21,12 @@ public class Aktivitaet {
 	@Autowired
 	private ProgrammerRepository programmerRepository;
 
-	public String ausfuehrenImplementierung(String state, DataContainer dataContainer) {
+	public String ausfuehrenImplementierung(String state, DataContainer dataContainer, int whichPrime) {
 		if ("complex".equals(state)) {
 
 			// calculate the nth prime
 			if (dataContainer.getInputComplex() != null) {
 				LinkedList<Long> primes = new LinkedList<>();
-				int whichPrime = Integer.parseInt(dataContainer.getInputComplex());
 				primes.add(2l);
 				long i = 2;
 				primes: while (primes.size() < whichPrime) {
