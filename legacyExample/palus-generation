@@ -1,0 +1,10 @@
+#!/bin/zsh
+PALUS_DIR="/Users/ch4inl3ss/Desktop/test-generation-libs"
+PALUS_JAR=$PALUS_DIR/palus-0.2-nodept.jar
+echo $PALUS_JAR
+TARGET_CLASSES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/classes"
+TARGET_DEPENDENCIES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency/*"
+CLASSPATH=$TARGET_CLASSES:$TARGET_DEPENDENCIES
+TEST_JAR="legacyExample-0.0.1-SNAPSHOT.jar.original"
+
+java -javaagent:$PALUS_JAR=legEx -cp $PALUS_JAR:$CLASSPATH de.ch4inl3ss.aktivitaet.Aktivitaet

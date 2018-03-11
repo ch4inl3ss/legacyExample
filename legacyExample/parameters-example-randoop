@@ -1,0 +1,26 @@
+#!/bin/zsh
+RANDOOP_PATH="/Users/ch4inl3ss/Desktop/test-generation-libs/randoop-4.0.0"
+RANDOOP_JAR="/Users/ch4inl3ss/Desktop/test-generation-libs/randoop-4.0.0/randoop-all-4.0.0.jar"
+echo $RANDOOP_PATH
+echo $RANDOOP_JAR
+TARGET_CLASSES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/classes"
+TARGET_DEPENDENCIES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency/*"
+CLASSPATH=$TARGET_CLASSES:$RANDOOP_JAR:$TARGET_DEPENDENCIES
+echo $CLASSPATH
+DIRECTORY="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency"
+
+if [ ! -d "$DIRECTORY" ]; then
+	mvn dependency:copy-dependencies
+fi
+
+cd src/test/java
+
+BEGIN=$(date +%s)
+
+
+
+java -Xmx8000m -classpath $CLASSPATH randoop.main.Main gentests --testclass=de.ch4inl3ss.randomsample.RandomDataExample --junit-package-name=de.ch4inl3ss.randomsample
+
+END=$(date +%s)
+echo "Der Vorgang dauerte $((END-BEGIN)) Sekunden"
+

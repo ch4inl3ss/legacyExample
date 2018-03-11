@@ -1,0 +1,8 @@
+#!/bin/zsh
+mvn clean install
+BEGIN=$(date +%s)
+
+mvn -DmemoryInMB=8000 -Dcores=4 evosuite:generate evosuite:export
+
+END=$(date +%s)
+echo "Der Vorgang dauerte $((END-BEGIN)) Sekunden"

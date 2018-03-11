@@ -1,0 +1,21 @@
+#!/bin/zsh
+T3_JAR_PATH="/Users/ch4inl3ss/Desktop/test-generation-libs/t3/build/t3/T3.jar"
+TARGET_CLASSES="/Users/ch4inl3ss/Desktop/test-generation-libs/legacyExample/legacyExample/target/classes"
+TARGET_DEPENDENCIES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency/*"
+CLASSPATH=$T3_JAR_PATH:$TARGET_CLASSES:$TARGET_DEPENDENCIES
+echo $CLASSPATH
+PRESAVEDIR="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/"
+CURRENTDIR=`pwd`
+cd $PRESAVEDIR
+mkdir t3
+cd $CURRENTDIR
+SAVEDIR="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/t3/"
+
+
+java -ea -classpath $CLASSPATH Sequenic.T3.T3Cmd --showexc --savedir=$SAVEDIR de.ch4inl3ss.aktivitaet.Aktivitaet 
+
+cd $SAVEDIR
+FIRSTFILE=`ls | head -n 1`
+
+java -classpath $CLASSPATH Sequenic.T3.ReplayCmd $FIRSTFILE
+cd $CURRENTDIR

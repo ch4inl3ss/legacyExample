@@ -1,0 +1,14 @@
+#!/bin/zsh 
+JTE_HOME="/Users/ch4inl3ss/Desktop/test-generation-libs/JTExpert"
+
+TARGET_CLASSES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/classes/"
+TARGET_DEPENDENCIES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency/"
+JAR="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/legacyExample-0.0.1-SNAPSHOT.jar.original"
+CLASSPATH=$JAR
+SYSTEM_UNDER_TEST="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/src/main/java/de/ch4inl3ss/aktivitaet/Aktivitaet.java"
+RESULT="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/classes"
+echo $CLASSPATH
+
+cd $TARGET_DEPENDENCIES
+
+java -jar -Xms1G -Xmx1G $JTE_HOME/JTExpert-1.4.jar -cp $CLASSPATH -jf $SYSTEM_UNDER_TEST -maxTime 60 -tp $RESULT  -seed 82895723457381 -p -s -o 
