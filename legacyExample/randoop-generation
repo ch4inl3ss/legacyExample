@@ -1,14 +1,14 @@
 #!/bin/zsh
-RANDOOP_PATH="/Users/ch4inl3ss/Desktop/test-generation-libs/randoop-4.0.0"
-RANDOOP_JAR="/Users/ch4inl3ss/Desktop/test-generation-libs/randoop-4.0.0/randoop-all-4.0.0.jar"
+RANDOOP_PATH="/Users/felix/Desktop/legacy-code-vortrag/randoop-4.1.1"
+RANDOOP_JAR="$RANDOOP_PATH/randoop-all-4.1.1.jar"
 echo $RANDOOP_PATH
 echo $RANDOOP_JAR
-TARGET_CLASSES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/classes"
-TARGET_DEPENDENCIES="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency/*"
+TARGET_CLASSES="/Users/felix/Desktop/legacy-code-vortrag/legacyExample/legacyExample/target/classes"
+TARGET_DEPENDENCIES="/Users/felix/Desktop/legacy-code-vortrag/legacyExample/legacyExample/target/dependency/*"
 CLASSPATH=$TARGET_CLASSES:$RANDOOP_JAR:$TARGET_DEPENDENCIES
 echo $CLASSPATH
 
-DIRECTORY="/Users/ch4inl3ss/Desktop/legacyExample/legacyExample/target/dependency"
+DIRECTORY="/Users/felix/Desktop/legacyExample/legacyExample/target/dependency"
 
 if [ ! -d "$DIRECTORY" ]; then
 	mvn dependency:copy-dependencies
